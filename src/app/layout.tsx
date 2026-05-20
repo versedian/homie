@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import { Space_Mono, Workbench } from "next/font/google";
 import "./globals.css";
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-space-mono",
+});
+
+const workbench = Workbench({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-workbench",
+});
 
 export const metadata: Metadata = {
   title: "homie.eth1c.com",
@@ -28,8 +41,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`h-full antialiased ${spaceMono.variable} ${workbench.variable}`}>
       <body className="min-h-full bg-background text-foreground">{children}</body>
     </html>
   );
 }
+

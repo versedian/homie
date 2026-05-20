@@ -15,7 +15,7 @@ export default function Home() {
         <div className="w-full max-w-3xl">
           {/* Logo/Branding */}
           <div className="mb-16 text-center">
-            <GlitchTitle text="homie" />
+            <GlitchTitle text="homie" isActive={query.trim().length > 0} />
           </div>
 
           {/* Search Box */}
