@@ -81,6 +81,26 @@ const imageEngines: SearchEngine[] = [
   },
 ];
 
+type SectionHeaderProps = {
+  icon: string;
+  title: string;
+  gradient: string;
+};
+
+function SectionHeader({ icon, title, gradient }: SectionHeaderProps) {
+  return (
+    <div className="group/header flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-2">
+        <span className="text-lg group-hover/header:scale-110 transition-transform duration-300">{icon}</span>
+        <h2 className={`text-sm font-semibold tracking-wide ${gradient}`}>
+          {title}
+        </h2>
+      </div>
+      <div className="flex-1 h-px bg-gradient-to-r from-foreground-muted/30 via-foreground-muted/10 to-transparent group-hover/header:from-foreground-muted/50 group-hover/header:via-foreground-muted/20 transition-colors duration-300" />
+    </div>
+  );
+}
+
 type SpeedDialProps = {
   query: string;
 };
@@ -144,19 +164,40 @@ export function SpeedDial({ query }: SpeedDialProps) {
   };
 
   return (
-    <div className="mt-12 space-y-6">
-      {/* Web Search Row */}
-      <div className="grid grid-cols-4 gap-3">
-        {searchEngines.map((engine) => (
-          <EngineButton key={engine.name} engine={engine} />
-        ))}
+    <div className="mt-12">
+      {/* Web Search Section */}
+      <div className="space-y-4">
+        <SectionHeader 
+          icon="🔍" 
+          title="Web Search" 
+          gradient="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent"
+        />
+        <div className="grid grid-cols-4 gap-3">
+          {searchEngines.map((engine) => (
+            <EngineButton key={engine.name} engine={engine} />
+          ))}
+        </div>
       </div>
 
-      {/* Image Search Row */}
-      <div className="grid grid-cols-4 gap-3">
-        {imageEngines.map((engine) => (
-          <EngineButton key={engine.name} engine={engine} />
-        ))}
+      {/* Visual Separator */}
+      <div className="my-8 flex items-center gap-3">
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-foreground-muted/20 to-transparent" />
+        <span className="text-xs text-foreground-muted/40 uppercase tracking-widest">or</span>
+        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-foreground-muted/20 to-transparent" />
+      </div>
+
+      {/* Image Search Section */}
+      <div className="space-y-4">
+        <SectionHeader 
+          icon="🖼️" 
+          title="Image Search" 
+          gradient="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent"
+        />
+        <div className="grid grid-cols-4 gap-3">
+          {imageEngines.map((engine) => (
+            <EngineButton key={engine.name} engine={engine} />
+          ))}
+        </div>
       </div>
     </div>
   );
