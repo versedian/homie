@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { SearchBox } from "@/components/SearchBox";
 import { SpeedDial } from "@/components/SpeedDial";
+import { GlitchTitle } from "@/components/GlitchTitle";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -14,9 +15,7 @@ export default function Home() {
         <div className="w-full max-w-3xl">
           {/* Logo/Branding */}
           <div className="mb-16 text-center">
-            <h1 className="text-6xl font-light tracking-tight text-foreground sm:text-7xl">
-              homie
-            </h1>
+            <GlitchTitle text="homie" />
           </div>
 
           {/* Search Box */}
