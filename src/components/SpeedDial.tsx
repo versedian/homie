@@ -77,7 +77,7 @@ const imageEngines: SearchEngine[] = [
     icon: "⚡",
     baseColor: "#c9899d",
     brightColor: "#ff6bb5",
-    buildUrl: (q) => `https://search.brave.com/search?q=${encodeURIComponent(q)}&tbm=isch`,
+    buildUrl: (q) => `https://search.brave.com/images?q=${encodeURIComponent(q)}`,
   },
 ];
 
