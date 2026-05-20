@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark mode base */
+  --background: #0b0e11;
+  --surface: #1a1f2e;
+  --surface-light: #252d3d;
+  --foreground: #e8eaed;
+  --foreground-muted: #b0b4b8;
+  --border: #333840;
+
+  /* Muted pastels */
+  --pastel-pink: #d8b4c4;
+  --pastel-blue: #a8c5dd;
+  --pastel-purple: #c4a8dd;
+  --pastel-green: #a8ddc4;
+  --pastel-yellow: #ddd8a8;
+
+  /* Neon highlights */
+  --neon-pink: #ff85c1;
+  --neon-blue: #4dd9ff;
+  --neon-purple: #c77dff;
+  --neon-green: #4ade80;
+  --neon-yellow: #fde047;
+
+  /* Engine brand colors - muted base */
+  --engine-google: #8fa8d8;
+  --engine-duckduckgo: #d4a894;
+  --engine-bing: #7db8c4;
+  --engine-brave: #c9899d;
+
+  /* Engine brand colors - bright highlights */
+  --engine-google-bright: #6db3ff;
+  --engine-duckduckgo-bright: #ffb88d;
+  --engine-bing-bright: #4dd9ff;
+  --engine-brave-bright: #ff6bb5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-pastel-pink: var(--pastel-pink);
+  --color-pastel-blue: var(--pastel-blue);
+  --color-pastel-purple: var(--pastel-purple);
+  --color-pastel-green: var(--pastel-green);
+  --color-pastel-yellow: var(--pastel-yellow);
+  --color-neon-pink: var(--neon-pink);
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-green: var(--neon-green);
+  --color-neon-yellow: var(--neon-yellow);
+  --color-engine-google: var(--engine-google);
+  --color-engine-duckduckgo: var(--engine-duckduckgo);
+  --color-engine-bing: var(--engine-bing);
+  --color-engine-brave: var(--engine-brave);
+  --color-engine-google-bright: var(--engine-google-bright);
+  --color-engine-duckduckgo-bright: var(--engine-duckduckgo-bright);
+  --color-engine-bing-bright: var(--engine-bing-bright);
+  --color-engine-brave-bright: var(--engine-brave-bright);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --animate-search-glow: search-glow 8s ease-in-out infinite;
+
+  @keyframes search-glow {
+    0%, 100% {
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 12px rgba(77, 217, 255, 0.2), 0 0 25px rgba(77, 217, 255, 0.1), 0 0 50px rgba(77, 217, 255, 0.05);
+      transform: scale(1);
+    }
+    33% {
+      border-color: var(--neon-purple);
+      box-shadow: 0 0 18px rgba(199, 125, 255, 0.4), 0 0 35px rgba(199, 125, 255, 0.2), 0 0 70px rgba(199, 125, 255, 0.1);
+      transform: scale(1.01);
+    }
+    66% {
+      border-color: var(--neon-pink);
+      box-shadow: 0 0 12px rgba(255, 133, 193, 0.25), 0 0 25px rgba(255, 133, 193, 0.15), 0 0 50px rgba(255, 133, 193, 0.05);
+      transform: scale(1.008);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}
