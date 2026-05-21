@@ -7,6 +7,7 @@ A minimal, privacy-first personal homepage & search interface for [Cloudflare Pa
 ## Features
 
 - 🔍 **Fast search** – Eight search engines at your fingertips: Google, DuckDuckGo, Bing, and Brave (plus image search variants)
+- ✨ **Interactive title** – "homie" title animates in three states: neutral (rest), glow (focused), chaotic (typing)
 - 🌙 **Dark mode by default** – Handcrafted dark theme with muted pastels and neon accents
 - 🎨 **Brand-aware colors** – Each search engine has a distinct, recognizable color
 - ⚡ **Static & lightweight** – ~764 KB production build, zero external dependencies for tracking

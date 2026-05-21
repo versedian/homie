@@ -4,17 +4,20 @@ import { useState, useEffect, useLayoutEffect, useRef } from "react";
 
 type SearchBoxProps = {
   onQueryChange?: (query: string) => void;
+  onFocusChange?: (isFocused: boolean) => void;
 };
 
-export function SearchBox({ onQueryChange }: SearchBoxProps) {
+export function SearchBox({ onQueryChange, onFocusChange }: SearchBoxProps) {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const onQueryChangeRef = useRef(onQueryChange);
+  const onFocusChangeRef = useRef(onFocusChange);
 
-  // Keep ref in sync with prop
+  // Keep refs in sync with props
   useEffect(() => {
     onQueryChangeRef.current = onQueryChange;
-  }, [onQueryChange]);
+    onFocusChangeRef.current = onFocusChange;
+  }, [onQueryChange, onFocusChange]);
 
   // Initialize from sessionStorage on first mount (using useLayoutEffect to run before paint)
   useLayoutEffect(() => {
@@ -111,6 +114,8 @@ export function SearchBox({ onQueryChange }: SearchBoxProps) {
           type="text"
           value={query}
           onChange={(e) => handleChange(e.target.value)}
+          onFocus={() => onFocusChangeRef.current?.(true)}
+          onBlur={() => onFocusChangeRef.current?.(false)}
           placeholder="Search the web..."
           autoFocus
           className="flex-1 bg-transparent text-foreground placeholder-foreground-muted outline-none"
